@@ -256,7 +256,7 @@ There's a couple three ways to make arrays in Numpy:
   - To make CLT work, we have to perform some statistic to our samples, then perform and aggregating function ***with central tendency***
      - **Central Tendency** means that the statistic is concerned with finding some central or typical value for the distribution
      - Most of our examples use mean and sample mean
-- **CLT** makes no assumptions about the type of distribution or values of our distribution. It can be anything, and the sample mean will always trend normal
+- **Central Limit Theorem** makes no assumptions about the type of distribution or values of our distribution. It can be anything, and the sample mean will always trend normal
 - ***The central limit theorem allows us to make probabilistic statements about the sample mean from any population using the normal distribution.***
 - **Standard error** is the standard deviation of the *sampling distribution*
 ### :rotating_light:I'm still trying to suss out how to detect and figure out the standard error and standard deviation for CLT. I will probably have to refer back to the assignment if/when this question gets asked again:rotating_light:
