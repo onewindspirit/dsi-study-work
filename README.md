@@ -893,7 +893,7 @@ There's a couple three ways to make arrays in Numpy:
    - Model is *underfit*
    - Line is too rigid
    - Not enough features
-   - Error tends towards one sit or the other in blocks
+   - Error tends towards one end or the other in blocks
    - Error magnitude not randomly distributed
 - **High Variance**:
    - Model is *overfit*
@@ -1260,3 +1260,477 @@ There's a couple three ways to make arrays in Numpy:
    - Neither cost sensitivity or sampling is strictly superior
       - Oversampling tends to work better than undersampling on small datasets
       - Some algorithms do not have an obvious cost-sensitive adaptation, meaning they require sampling
+
+## :pleading_face:***```WEEK FIVE```***:pleading_face:
+
+## Gradient Descent
+- [**Link to Finished Assignment**](https://github.com/onewindspirit/gradient-descent)
+### **Lecture Notes**
+- Remember rules for taking a derivative from Calc
+   - Part of developing loss functions
+- [**Review calculus here**](https://github.com/ageron/handson-ml2)
+- ***Gradient Descent and Optimization:***
+   - ***PIVOTAL IDEA:***
+      - *If a derivative of a cost function is inputted with values from the dataset, eventually an optimized cost can be reached*
+      - *if I don't know what the parameters should be, we can start with random parameters and incrementally improve*
+- The vector (∂𝑓∂𝑥,∂𝑓∂𝑦) is called a ***gradient***, and is in the direction of greatest increase of the function. The opposite direction is the greatest decrease.
+- **Optimization**: Throughout machine learning we have a constant goal of trying to find the model that best predicts the target from the features. We generally define "best" as minimizing some cost function (or maximizing a score function). In the case of linear regression (without regularization), we can do that by solving an equation exactly, but in almost every other case that's not possible. 
+- We want to find the values of 𝛽0 and 𝛽1 such that this *loss function* ***L*** is as small as possible, i.e., **minimize cost function**
+   - We can do this by:
+      1. figure out which direction we can change the coefficients to make ***L*** smaller. (how? partials.)
+      2. We adjust the coefficients slightly in the direction, (how? learning rate!)
+      3. recalculate the direction, re-adjust, and repeat, again and again until we converge. 
+- **Gradient descent limitations**:
+   - Dependent on the size of the step
+      - Too small and it takes a long time, etc.
+      - Can be extended to allow learning rate to vary
+         - Dependent on *𝛼* factor
+   - **Convergence**:
+      - general rule: If the value of ```|∇𝑓(𝐱𝑖)−∇𝑓(𝐱𝑖+1)|/|𝐱𝑖−𝐱𝑖+1|``` is bounded above by some number ```𝐿(∇𝑓)``` then ```𝛼≤1/𝐿(∇𝑓)``` will converge.
+   - **Feature scaling**:
+      - If the second derivative is the same in all directions it converges pretty well. If the farther it is from this (as above) the more trouble it has converging, because the initial learning rate takes too long to converge along the slower dimensions (you've seen it in KNN lecture).
+      - This can mitigated by standardize/normalize the features.
+   - **Stuck on local minima/maxima**:
+      - Gradient descent is not guaranteed to find a global minimum, only the local. This isn't a problem here or with regression (there's only one minimum) but is for other problems. Finding the global minimum is a difficult problem that does not have a solution in general, though there're techniques that do better than others. One approach is to try multiple starting points and make sure they converge to the same value.
+- **Stopping Criteria**:
+   - Relative convergence tolerance: |𝑓(𝐱)−𝑓(𝐲)|/|𝑓(𝐱)|<𝜖
+   - Absolute convergence tolerance: Magnitude of gradient |∇𝑓|<𝜖
+   - Maximum number of iterations 
+- **RECAP**:
+- The way gradient descent works to find a minimum is:
+   - Choose a starting point, a **learning rate**, and a threshold
+   - Repeatedly:
+      - Calculate the gradient at the current point,
+      - Multiply the gradient by the **negative** of the learning rate
+      - Add that to the current point to find a new point
+      - Repeat until within the threshold
+- **Stochastic gradient descent**
+   - *Challenges of gradient descent include*:
+         - it requires all the data to be in memory at each step. That's a problem for Big Data situations when you have more data then can fit in memory.
+         - only finds local extrema
+         - static, what if you are getting new data continuously?
+   - **Stochastic gradient descent (SGD)** provides a soultion for making a step at *eatch data point* (chosen in random order)
+      - Determines that we only need one data point in memory at teh same time
+      - Since the loss function is the sum of the loss functions associated with each data point, the average effect of a tiny step for each point is the same as one step for the whole sample.
+   - A less extreme alternative is **mini-batch stochastic gradient descent** in which we use a small number of data points for each step.
+   -SGD has a couple of properties:
+      1. it's allowed on-line training, i.e., it can incorporate additional data easily and train to that
+      2. only requires one observation in memory at once
+      3. the random data points help it prevent local minima
+      4. faster than batch (regular) Gradient Descent on average
+      5. prone to oscillation around an optimum
+- **Newton's method**: an optimization technique that uses the second derivative to jump to the solution more quickly. In a sense, Newton's method is superior algorithm that can provide a guarantee for its solution, and it is much faster when the function has easy-to-compute second derivative (Newton--Raphson is used in logistic)
+
+## Multi-Layer Perceptrons
+- [**Link to Finished Assignment**](https://github.com/onewindspirit/perceptrons)
+### **Lecture Notes**
+- **Neural Networks**: Perform well with hihg-dimensional (**unstructured**) data such as images, audio, and text
+   - Disadvantages:
+      - Hard to design and tune
+      - Slow to train
+      - Many local minima
+      - Uninterpretable
+      - Easy to overfit (needs a lot of data)
+   - Advantages:
+      - Works well with high-dimensional data
+      - Can find almost anything when designed correctly
+      - Online training
+- *Activation function*: functions applied to a model to change the results
+   - *Rectified Linear Unit*
+- In simple terms, just a sequence of inputs and outputs being weighted differently for each layer
+- **NN Representation**:
+   - can be expressed as a directed graph
+      - *input*, *hidden*, *output* nodes or ***neurons*** in graphy
+      - layers inbetwen input and output are either *weights* or *activation functions* and *hidden*
+   - ***some weird notation we'll have to get comfortable featured in the lecture***
+   - Output layer 𝑎[2]=𝑦̂ 
+   - weights 𝑤[layer]
+- ***What is happening in each neuron? Two steps:***
+   1. *𝑧=𝑤𝑇𝑥+𝑏*
+   2. *𝑎=𝜎(𝑧)*
+- **Activation Functions**:
+   - **Sigmoid**: used in logistic regression to scale things between 0-1
+      - *Differential*
+      - *Monotonic*
+      - Gets stuck during Training
+   - **Softmax**: used for multiclass classification
+   - **hperbolic tangent**: similar to sigmoid
+   - **Rectified Linear Unit (ReLU)**: Most popular activation function currently
+      - Gradient descent
+- **Forward propagation**: Signal is propagated from one layer to the next
+- **Backpropagation**: updates weights in a model backwards using gradients, chain rule and optimized using an optimization algorithm
+- **Fully Connected Network**: Simplist type of NN
+   - Nodes are organized into layers
+   - EAch layer is fully connected
+- **Regularization**: Since neural networks have a large number of parameters they are very easy to overfit. As such, most NN's include some sort of regularization:
+   1. **Dropout**: Most popular approach
+      - No effect during prediction
+      - Fails randomly during training
+      - Forces the network to build redundancy
+      - Generally don't use dropout > 0.2
+   2. **L1 and L2 Regularization**: Just like linear regression
+   3. **Parameter Sharing**: Tying some weights together by imposing a penalty based on the differences between certain parameters
+      - Many of the parameters must be the same
+      - **Convolutional neural networks**: Used for images and other data with some form of *translational invariance*
+      - **Recurrent neural networks**: Used for time-series data
+
+## Time Series Intro
+- *stuck on a weird error, refer to official solutions*
+- [Solutions](https://github.com/GalvanizeDataScience/rfe1_solutions)
+### **Lecture Notes**
+- ***Time series***: Specific type of data where measaurements of a single quantity are taken over time
+   - Time represented with index *i* and the observations from the sereies as *yi*
+- **Time Series objects are not independent**
+   - Things coming before impact those after
+   - Everything is actually time series when it comes down to it
+- **Trend**: gradual change in average level as time moves on
+   - Can be:
+      - *increasing*
+      - *decreasing*
+      - *neither*:
+         - Example: a trend changing direction at some point in time
+         - *Shock* when there's a spike in sharp increase/decrease over time
+         - *Mixed*
+- ***Regression*** models can often be used to capture a general trend in a time series
+- **Detrended series** the fit trend subtracted from the original series
+- **Moving average**: General approach to detrending data:
+   - We essentially slide a window of a fixed side across our data, and average the values of the series within the window
+   - The parameter 𝑤 controls how far to the left and to the right of 𝑦𝑖 we look when averaging the nearby points, this is called the window.
+   - Smaller values of window will tend to be influenced by noise of other non-trend patterns in the series.
+   - Large values of window produce smoother estimates of the general trend in the data.
+   - In general, ***larger windows are preferred***
+   - When we have data that aligns with calendar regularities (quarterly, weekly, yearly), it is a good idea to chose the window so that an *entire annual cycle is used in the smooth*. This will average out any seasonal patterns in the data
+- **Seasonality**: Regularly appearing pattern in a time series that lines up to features of the calendar
+   - A time series can be ***deseasonalized*** just as it can be *detrended*
+      - Most easily done by creating dummy variables at regular intervals of the calendar (month, week, etc)
+      - Fit a linear regression to the series using the dummy variables
+      - Subtract out seasonal predictions
+- **Trend-Seasonal-Residual Decomposition**: Expresses a time series as a sum of three components:
+   - Trend + Seasonality + Residual = *yt*
+   - Statsmodels implements the classical decomposition as `seasonal_decompose`
+   - Residual component 𝑅𝑡 should show no seasonal or trend patterns.
+      - Residual should be very low
+      - Residual should show no seasonal or trend patterns
+
+## Decision Trees
+- [**Link to Finished Assignment**](https://github.com/onewindspirit/decision-trees)
+### **Lecture Notes**
+- Mulitple layers of rules for classification that are applied to a dataset in a heirarchy
+   - rules can be mixed (ie. size and color decisions at different levels)
+   - Independent results of branches are called leaves
+   - Makes no assumptions about data shape
+      - Great for nonlinear models
+   - Handles catagorical data without having the make dummies like in linear regression
+- **Gini Impurity**: Measure of disorganization of a dataset
+   - defined by the probability of object *j* in a set being identified correctly multiplied by the probability of incorrect identification, summed over all all objects
+   - Right split results in a *minimum gini impurity* in the *child nodes*
+      - Split that *gains the most information*
+- **Splitting Algorithms**
+   - Building a tree with many features (predictors, attributes) and data
+      - Too complex to do by hand
+      - Start with whole data and create every possible binary decision base on each feature
+         - For discrete features the decision is *class no class*
+         - For continuous  features the decison is *threshold < value* or *threhold >= value*
+      - Calculate the gini impurity for every decision
+      - Pick the decision which reduces the impurity the most
+         - Maximizes info gamed
+- **Different Types of Trees:**
+   1. **Classification**: OUtcomes (target, output) are discrete. Leaf values are typically set to the most common outcomes
+   2. **Regression Trees**: Outcomes (taret,output) are continuous. Leaf values are typically set to the mean value in outcomes
+      - Regression trees uses **RSS** instead of Gini/entropy
+   - ***Features (inputs, predictors) can be either discrete or continuous for both types of trees***
+   - **Overfitting**: Likely if the tree is built all the way until every leaf is prue
+      - Pruning ideas (when building the tree):
+         1. Leaf size: stop splitting when amount of examples gets small enough
+         2. Depth: stop splitting at a certain depth
+         3. Purity: Stop splitting if enough of the examples are the same class
+         4. Gain threshold: Stop splitting when the information gain becomes too small
+      - Postpruning ideas (for after the tree is built):
+         - Merge leaves if doing so decreases test-set error
+- **Entropy**: another splitting measure which quantifies randomness
+``` 
+from sklearn import tree
+tree.DecisionTreeClassifier(class_weight=None, criterion='entropy', max_depth=2,
+max_features=None, max_leaf_nodes=None,
+min_impurity_decrease=0.0, min_impurity_split=None,
+min_samples_leaf=1, min_samples_split=2,
+min_weight_fraction_leaf=0.0, presort=False, random_state=None,
+splitter='best')
+tree.DecisionTreeRegressor(max_depth=2)
+```
+   - Pruning with max_depth, min_samples_split, min_samples_leaf or max_leaf_nodes
+   - *Gini is default, but you can also choose entropy*
+- Most likely do not send unique identification information into a decision tree
+   - Will make a ton of decisions based on single entries
+- *Cross validation will help in selecting the best tree*
+- **Recursion** uses the idea of *divide and conquer* tod divide a complex problem into sub-problems that can be more easily solved
+   - ***Three Laws of Recursion***
+      1. Must have a base case
+      2. Must change its state and case
+      3. Must call iteself
+
+## Bagging and Random Forests: Implementation
+- [**Link to (Mostly) Finished Assignment**](https://github.com/onewindspirit/random-forests-implementation)
+### **Lecture Notes**
+- Multiple decision trees create a forest
+- Combines simplicity of decision trees with flexibility of bootstrapping resulting in a vast improvement in accuracy
+- **Ensemble Method**: Combines many weak models in order to form a strong model
+   - Train multiple unique models on the data
+      - Can be differnt subsets of data
+      - Trained in different ways
+      - ***(Or completely different types)*** 
+      - Not necessarily multiple weak models
+   - Can use weighted average to gain a single prediction from an ensemble of **regression** models
+   - Can use simple majority to get a single prediction from an ensemble of **classification** models given a threshold
+   - Limitations:
+      - Models must be independent
+         - Models cannot repeat
+   - ***Incredibly important concept in data science***
+- **Classification Trees**:
+   - Consider every possible split of every feature at every value
+   - Pick the one split that provides the best information gain (reduction in entropy/gini impurity)
+   - Discard the other splits.
+   - Use that split to create two new nodes and consider splitting them on every possible feature/value.
+   - Stop when all nodes are pure or other stopping conditions like depth limit are met
+   - Prune trees by merging nodes (ie., canceling a split)
+- **Take note**:
+   - Any node that does not get split further is a leaf node
+   - Leaf nodes can appear at any level on the tree
+   - After being split from a parent, sibling nodes are independent. They don't have to be split on the same feature
+   - Multi-class or numeric features can be split many times and don't have to be in any order or follow any direction
+   - Splits are totally independent of each other.
+- **Regression Trees** predict a number rather than a class
+   - Prediction works the same way as with classification trees
+      - However, the leaf nodes give a number rather than the probabilities
+   - Train with *total squared error*
+      - Use stopping conditions like:
+         - Depth limit
+         - Minimum leaf size
+      - Prune trees by merging nodes or canceling splits
+- **Decision tree pros:**
+   - No feature scaling needed
+   - Model nonlinear relationships 
+      - features can have different effects at different nodes
+   - Can do both classification and regression
+   - Robust
+   - Highly interpretable
+- **Decision tree cons:**
+   - Can be expensive to train
+   - Often poor predictors because of high variance
+- **Bootstrapped aggregation**:
+   - Thinking about the population of all possible decision tree models
+   - Some correlation between models
+      - All trained on bootstrap samples from the same draw
+- **Bagging**:
+   - Short for ***Bootstrap Aggregating***
+   - Creates each model from a bootstrap and aggregates the results
+   - Done in order to decrease variance
+   - Injects an element of randomness into the training data
+      - After the training data is chosen, all the trees are built according to the same algorithm
+- **Random Forests**:
+   - Like bagging only each tree are decorrelated without increasing bias
+      - Done with **subspace sampling**
+         - **Space** refers to set of *features*
+            - **Subspace** = "a set of features that does not include all of the features"
+         - Randomly select a group of features to use at each split
+         - Number of features *m* considered at each split is a *hyperparameter*
+            - Typically square root of *k*
+- **Difference between Bagging and Random Forest:**
+   - Bagging injects randomness in the selection of training data
+   - Random Forest uses randomness in both the training data *and* the features ***considered at each split***
+- ***More randomness means more decorrelation!***
+- **Random Forest Parameters**
+   - Total number of trees
+   - Number of features to use at each split
+   - Individual decision tree Parameters
+      - e.g., tree depth, pruning, split criterion
+- In general, Random Forests are fairly robust to the choice of parameters and overfitting.
+- **Random Forest Pros**:
+   - Often give near state-of-the-art performance
+   - Good out-of-the-box performance
+   - No feature scaling needed
+   - Model nonlinear relationships
+- **Random Forest Cons**:
+   - Can be expensive to train (though can be done in parallel)
+   - Not interpretable
+   - Cannot work with datasets that have only one feature
+## Random Forests: Interpretation
+- [**Link to Finished Assignment**](https://github.com/onewindspirit/random-forests-application)
+### **Lecture Notes**
+- **Unpruned decision tree**: Overfits, has high variance
+   - Can be fixed using random forests
+- **Out-Of-Bag Error**:
+   - measure of error for a bagged model
+      - including random forests
+   - Decision trees are constructed from a boostrap sample
+      - a *test* set of data that wasn't used for training already exists
+   - **Remember**:
+      - *Bagging* applies to the whole tree
+      - *Subspace selection* applies only to nodes
+   - `((1-n)/n)**n` or 1/*e* or ~0.368
+   - *Sometimes, we may want to cross validation if we are comparing random forests to other models and want to measure the accuracy the same way*
+- **Feature Importances**: machine learning algorithms are built to reproduce the data they were trained on
+   - If the training data contains bias **the algorithm will perpetuate that bias**
+   - **Interpretation**: Random forests are harder to interpret than single decision trees
+      - Measuring feature importance can give a greater understanding of the data
+- **Absolute Decrease in Accuracy**: easy way to estimate the importance of a feature
+   - Testing what would happen if that feature did not exist
+   - **Procedure**
+      - Build a Random Forest and measure the overall ensemble accuracy on test (holdout) data
+      - For each feature in the dataset, first delete it, then build a new RF without it, then measure the accuracy.
+      - If deleting the feature causes a large decrease in accuracy, it was an important feature.
+      - If deleting a feature has no impact on the accuracy, the feature wasn't very important.
+   - **Issues:**
+      - Lot of overhead to retrain multiple models
+      - You can't measure on your model; you have to rebuild a new, and possibly very different model each time you delete a feature.
+      - Subject to colinearity
+- **Mean Decrease Impurity:** Observe why features are employed when they are in teh model
+   - Model will identify the most informative feature (of subspace) at each split
+      - Observing when the features are used and how
+   - Counting up how many times a feature was used to split *anywhere* in the forest
+      - counts information gained of split
+      - then averages
+         - Each tree, each split in order to reduce the total impurtiy of the tree
+            - record magnitude of reduction
+         - Importance of a feature is the average decrease in impurity across trees in the forest
+            - result of splits defined by that feature
+   - Default in sklearn `rf.feature_importances_`
+   - **Advantage**: feature is analyzed as it is used in a fully formed, trained model
+   - **Disadvantage**: Does not account for how a feature is used
+- ***impurity-based feature importances should not be taken to mean that a feature is correlated with the final result***
+- **Mean Decrease Accuracy**: Associates most important metrics (ie. accuracy) is Mean Decrease in Accuracy
+   - Similar to method of *deleting* features described above
+      - Instead of removing a feature from the model its values are nullified by randomizing that feature column
+   - feature is left in the model, and does not need to be rebuilt
+   - **Computing importance of each feature:**
+     - Build the model using all features
+     - Measure the OOB accuracy for each tree
+     - Shuffle the values of one feature for all observations in the OOB data set and repeate the prediction
+     - Compute the impact to accuracy and average across all trees.
+     - If shuffling a feature results an a large decrease in accuracy, it was an import feature.
+   - Values are shuffled (rather than picking random values) to ensure that all values within the range are used
+   - Model does not need to be rebuilt or retrained (**PRO**)
+   - It might not work well with categorical features (**CON**)
+- **Partial Dependence**: Provides more detailed information but can be much harder to interpret
+   - Works on almost any model type
+   - Instead of deleting a feature, or neutralizing a feature (by shuffling its values), we conser all possible values of a feature for all observations. 
+   - **Method**:
+     1. Build, train a score a model with the orignal data.
+     2. For each feature, replace all observations' value with the lowest value of that feature.
+     3. Measure accuracy.
+     4. Replace all values for all observations with second-lowest value of that feature
+     5. Measure accuracy.
+     6. Repeat for all values of that feature up to the highest value that feature took on for any observation.
+   - Partial dependence plots can be constructed in one of two ways:
+      1. Consider how a metric (accuracy, recall, RMSE, etc) changes as a function of feature values
+      2. Consider how the prediction changes as a function of feature values
+   - Rather than providing a data point for the importance of each feature, it allows us to visualize the importance of each feature across all the values it could take on
+   - **Answers these questions**:
+      - Does changing this value have a large effect on the overall performance of the model?
+      - Is there a range of values where this value is important, vs. a range of values where it makes little difference?
+   - May ask the model to consider combinations of features that cannot exist IRL (*absurd data points*) (**CON**)
+   - ***Recommended for any model that isn't immediately interpretable***
+## Gradient Boosting for Regressors
+- [**Link to Finished Assignment**](https://github.com/onewindspirit/boosting-implementation)
+### **Lecture Notes**
+- **Gradient Boosting:** *boosts* the current estimate by adding an approximation to the gradient of the squared error loss function.
+   - stunningly powerful, general purpose, *off-the-shelf* machine learning algorithm.
+   - Versatile and relatively easy to use for ***Regression and classification***
+- Boosting can adapt itself effortlessly to very non-linear objects
+- Example uses decision trees that predict the residuals
+   - Iterates this many time, adding the residuals in order to fit the model
+- **Variance vs Bias in Boosting**
+   - Lowers variance by growing the model slowly over time
+   - Lowers bias by stacking many small models into the final result
+- ***Review: Residuals represent the difference between the real and predicted values, AKA the errors***
+- ```GradientBoostingRegressor(loss=’ls ’,
+                          n_estimators=100,
+                          learning_rate=0.1,
+                          max_depth=3,
+                          subsample=1.0,
+                          min_samples_split=2,
+                          min_samples_leaf=1,
+                          min_weight_fraction_leaf=0.0,
+                          ...)```
+- The most important options to `GradientBoostedRegressor` are:
+   - `loss` controls the loss function to minimize. ls is the least squares minimization algorithm we discussed in the previous section.
+   - `n_estimators` is how many boosting stages to compute, i.e., how many regression trees to grow.
+   - `learning_rate` is the learning rate for the gradient update.
+   - `max_depth` controls how deep to grow each individual tree.
+   - `subsample` allows to fit each tree on a random sample of the training data (similar to bagging in random forests).
+- **Cross validation**: Generally choose the number of trees minimizing the average out validation fold error
+- **Tuning the Learning Rate**:
+   - Between 0 and 1
+   - Allows us to grow boosted models slowly
+   - Large learning set will cause the model to fit hard to the training data
+      - creating ***high variance***
+   - A small learning rate reduces the boosted models' sensitivity to the training data
+   - **Strategy for Tuning Learning Rate:**
+      1. In the initial exploratory phases of modeling, set the learning rate to some large value, say 0.1. This allows you to iterate through ideas quickly.
+      2. When tuning other parameters using grid search, decrease the learning rate to a more sensible value, 0.01 works well.
+      3. When fitting the final production model, set the learning rate to a very small value, 0.001 or 0.0005, smaller is better.
+   - *General Advice: Run the final model overnight! It will fit while you are sleeping!*
+- **Tuning the Tree Depth:** 
+   - **Deeper Tree Depths:**
+      - A larger tree depth allows the model to capture deeper interactions between the predictors, resulting in lower bias
+      - Causes the model to fit faster, increasing the variance and somewhat combating the effect of the learning rate
+      - Allows the model to assume a more complex structure of the same number of trees. *This is a blessing (low bias) and curse (high variance)*
+   - It’s never obvious up front what tree depth is best for a given problem, so a grid search is needed to determine the best value
+   - **Strategy for Tuning Tree Depth:** Tune with a grid search and cross validation.
+- **Tuning the Subsample Rate:**
+   - The `subsample` parameter allows one to train each tree on a subsample of the training data.
+      - This is similar to **bagging** in the random forest algorithm, and has the same result: *it lowers the variance of the resulting model.*
+   - **Strategy For Tuning Subsample**: Set to 0.5, it almost always works well.
+   - If you have a massive amount of data and want the model to fit more quickly, decrease this value.
+   - ***Note: The default rate in sklearn is 1.0, so make sure you always change it.***
+- **Tuning Other Gradient Boosting Parameters:**
+   - The other parameters to GradientBoostingRegressor are less important, but can be tuned with grid search for additional improvements in importance
+      - `min_samples_split`: Any node with less samples than this will not be considered for splitting.
+      - `min_samples_leaf`: All terminal nodes must contain more samples than this.
+      - `min_weight_fraction_leaf`: Same as above, but expressed as a fraction of the total number of training samples.
+   - Generally these are less important because you shouldn’t be growing super gigantic trees
+- **Interpreting Gradient Boosting**:
+   - while gradient boosted models offer massive predicting power they are hard to interpret
+   - Two high level summarization techniques:
+      - **Relative Variable Importance:** Measures the amount a predictor ”participates” in the model fitting procedure.
+         - Same concept as in random forest
+         - Each time a tree is grown, we keep track of how much the error metric decreases
+            - Allocate that decrease to a predictor
+         - Importance of a predictor in a tree is the total amount that the error metric decreased over all splits on that predictor
+         - Importance of a predictor in the **boosted** model is the average importance of the predictor over all the trees
+         - Traditionally, one normalizes the importances so that they sum to 1
+      - **Partial Dependence Plots:** Are analogous to parameter estimates in linear regressions, they summarize the effect of a single predictor while controlling for the effect of all others.
+## Gradient Boosting for Classifiers
+- [**Link to Finished Assignment**](https://github.com/onewindspirit/gradient-boosted-regression)
+### **Lecture Notes**
+- **Other Gradient Boosting Algorithms for Classification**:
+   - **Gradient Boosted Logistic Regression**: Minimizes the binomial deviance (logistic log likelihood) loss function
+   - **AdaBoost**: Minimizes a custom classification loss
+      - Outdated, accoring to Skylar
+   - There are many more possibilites
+- **Gradient Boosted Logistic Regression**:
+   - Generalized boosting algorithm to solve for classification problems:
+      - Labels: 𝑦∈{0,1}
+      - Logistic Loss function: ℓ(𝑓,𝑦)=𝑦𝑓−log(1+exp(𝑓))
+      - ```from sklearn.ensembles import GradientBoostingClassifier 
+            model = GradientBoostingClassifier()
+            #Now y must be a np.array of 0 and 1’s!
+            model.fit(X, y)```
+      - to predict use `.predict_proba(X)`
+- **Gradient Boosted AdaBoost**:
+   - Presented ***purely for historical context***
+   - Labels: 𝑦∈{−1,1}
+   - Loss function: ℓ(𝑓,𝑦)=exp(−𝑦𝑓)
+- Gradient boosted logistic regression is *less sensitive to outliers* than Adaboost
+- Functions for Mixed Classes in lecture are really useful
+- Review: 
+   - Gradient Boosting is the best off-the-shelf learning algorithm available today
+   - It effortlessly produces accurate models.
+   - **Nonetheless, it has drawbacks**:
+      - Boosting creates very complex models. It can be difficult to extract intuitive, conceptual, or inferential information from them
+      - Boosting is difficult to explain (maybe you just learned this through experience)
+         - can be hard to convince business leader to accept such a black box model
+      - Boosted models can be difficult to implement in production environments due to their complexity
+      - The sequential nature of the standard boosting algorithm makes it very difficult to parallelize (compared to, for example, random forest)
+         - Recently, there has been great progress (xgboost and to a lesser degree of accuracy LightGBM)
+
