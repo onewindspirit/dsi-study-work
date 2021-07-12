@@ -1,6 +1,71 @@
 # DSI Notes and Study Guide
 
-## :dizzy:***```WEEK ONE```***:dizzy:
+## Contents:
+   - [:dizzy:`Week One`](#week-one)
+      - [Unix](#unix)
+      - [Git](#git-intro)
+      - [Python Intro](#python-intro)
+      - :white_check_mark:[Object Oriented Programming](#object-oriented-programming)
+      - [Numpy](#numpy)
+      - [Linear Algebra](#linear-algebra)
+      - :white_check_mark:[Pandas](#pandas)
+      - [Matplotlib](#matplotlib)
+   - [:sparkles:`Week Two`](#week-two)
+      - :white_check_mark:[Probability Distributions](#probability-distributions)
+      - :white_check_mark:[Binomial Tests](#binomial-tests)
+      - :white_check_mark:[Sampling Distributions](#sampling-distributions)
+      - :white_check_mark:[Central Limit Theorem](#central-limit-theorem)
+      - :white_check_mark:[Maximum-Likelihood Estimation](#maximum-likelihood)
+      - :white_check_mark:[Hypothesis Testing](#hypothesis-testing)
+      - :white_check_mark:[Statistical Power](#statistical-power)
+      - :white_check_mark:[Docker](#docker)
+      - :white_check_mark:[Intro to Bayesian Statistics](#bayesian-statistics)
+      - :white_check_mark:[Bayesian Hypothesis Testing](#bayesian-testing)
+   - [:zap:`Week Three`](#week-three)
+      - [Intro to SQL](#intro-to-sql)
+      - [Advanced SQL](#advanced-sql)
+      - [MongoDB](#mongodb)
+      - [Web Scraping](#web-scraping)
+      - [AWS](#aws)
+      - [SQL and Dataframes in Spark](#sql-and-dataframes-in-spark)
+   - [:bomb:`Week Five`](#week-five)
+      - :white_check_mark:[K-Nearest Neighbors](#k-nearest-neighbors)
+      - :white_check_mark:[Bias- VarianceCross Validation](#bias-variance-and-cross-validation)
+      - :white_check_mark:[Predictive Linear Regression](#predictive-linear-regression)
+      - :white_check_mark:[Inferential Regression](#inferential-linear-regression)
+      - :white_check_mark:[Algorithmic Complexity](#algorithmic-complexity)
+      - :white_check_mark:[Regularized Regression](#regularized-regression)
+      - :white_check_mark:[Logistic Regression](#logistic-regression)
+      - :white_check_mark:[Decision Rules](#decision-rules)
+   - [:pleading_face:`Week Six`](#week-six)
+      - :white_check_mark:[Gradient Descent](#gradient-descent)
+      - :white_check_mark:[Multi-Layer Perceptrons](#multi-layer-perceptrons)
+      - :white_check_mark:[Time Series](#time-series-intro)
+      - :white_check_mark:[Decision Trees](#decision-trees)
+      - :white_check_mark:[Random Forests Implementation](#bagging-and-random-forests-implementation)
+      - :white_check_mark:[Random Forests Application](#random-forests-interpretation)
+      - :white_check_mark:[Gradient Boosted Regressors](#gradient-boosting-for-regressors)
+      - :white_check_mark:[Gradient Boosted Classifiers](#gradient-boosting-for-classifiers)
+   - [:butterfly:`Week Seven`](#week-seven)
+      - :white_check_mark:[Image and Audio Processing](#image-and-audio-processing)
+      - :white_check_mark:[Convolutional Neural Networks](#convolutional-neural-networks)
+      - :white_check_mark:[Natural Language Processing](#natural-language-processing)
+      - :white_check_mark:[Text Classification and Naive Bayes](#text-classification-and-naive-bayes)
+      - :white_check_mark:[Clustering](#clustering)
+      - :white_check_mark:[Principal-Component-Analysis](#principal-component-analysis)
+      - :white_check_mark:[Singular Value Decomposition](#singular-value-decomposition)
+      - :white_check_mark:[Topic Modeling with NMF](#topic-modeling)
+
+## WEEK ONE
+
+## Unix:
+### **Lecture Notes**
+
+## Git Intro:
+### **Lecture Notes**
+
+## Python Intro:
+### **Lecture Notes**
 
 ## Object Oriented Programing:
 ### **Lecture Notes**
@@ -97,7 +162,7 @@ There's a couple three ways to make arrays in Numpy:
 - `keepdims=True` can be declared in order to keep the shape
 - :rotating_light:**The correct method for matrix multiplication (at least in the assessment) is `np.array.dot()`**:rotating_light:
 
-## Linear Algebra Notes
+## Linear Algebra
 - [**Completed Assignment**]()
 ### **Lecture Notes**
 - **Scalar**: A quantity that only has magnitude
@@ -162,7 +227,7 @@ There's a couple three ways to make arrays in Numpy:
 - **`pd.to_datetime()`** is extremely useful in **Exploratory Data Analysis** for converting non-standard date and time values into something more uniform and easily read.
 - **`pd.DataFrame.groupby()`** doesn't return what I expect it to. You need to add some sort of function or operation at the end in order to get a new dataframe out of it.
 
-## Matplotlib Notes
+## Matplotlib
 - [**Link to Completed Assignment**](https://github.com/onewindspirit/matplotlib)
 ### **Lecture Notes**
 - Import with:
@@ -188,7 +253,7 @@ There's a couple three ways to make arrays in Numpy:
 - **Pandas** and **Matplotlib** go hand in hand
    - Reading datasets into Pandas and generating plots with Matplotlib is clearly fundamental to the course and data science in general
 
-## :sparkles:***```WEEK TWO```***:sparkles:  
+## WEEK TWO
 
 ## Probability Distributions
 - [**Scipy Documentation**](https://docs.scipy.org/doc/scipy/reference/)
@@ -461,14 +526,14 @@ There's a couple three ways to make arrays in Numpy:
 - Sample from the distributions to determine our beliefs
 - [List of Conjugate Priors](https://en.wikipedia.org/wiki/Conjugate_prior)
 
-## :zap:***```WEEK THREE```***:zap:
+## WEEK THREE
 
 ## Intro to SQL
 - [**Link to Finished Assignment**](https://github.com/onewindspirit/sql-intro)
 ### **Lecture Notes**
 - **Relational Database Management System (RDBMS)**:
    - Persistent data storage system
-      - survives after the rpocess in which it was created has ended
+      - survives after the process in which it was created has ended
       - is written to non-volatile storage
    - de facto standard for storing data
    - Examples include: Oracle, MySQL, SQLServer, Postgres
@@ -572,7 +637,7 @@ There's a couple three ways to make arrays in Numpy:
       - **SQL is used to interact** with RDBMS, allowing you to create and alter tables, update records, delete records, and query records within and across tables
       - Even non-relational databases usually have a SQL-like interface available
 - **Database Life Cycle (DBLC)**:
-   - Requirements Elicitation -> Database Design -> Implementing and loading -> Operations -> Maintenance
+   - Requirements Elicitation -> Database Design -> Implementation and loading -> Operations -> Maintenance
    - --->***Datascience***--->
    - Normalization -> Primary Keys, Foreign Keys, ```CREATE, DROP, INSERT```-> ```SELECT, FROM, WHERE, JOIN, HAVING, DISTINCT, GROUP BY, ORDER BY```
 - **Relational Database Management Systems**
@@ -826,10 +891,7 @@ There's a couple three ways to make arrays in Numpy:
       2. The data type the function will return
 - Spark has an ***SQL Interface*** for running queries in Python
 
-## ***```WEEK FOUR: CAPSTONE ONE```***
-### ***No Lectures!***
-
-## :bomb:***```WEEK FIVE```***:bomb:
+## WEEK FIVE
 
 ## K-Nearest Neighbors
 - [**Link to Solutions**](https://github.com/GalvanizeDataScience/rfe1_solutions)
@@ -883,7 +945,7 @@ There's a couple three ways to make arrays in Numpy:
 - :bell:***Bias-Variance***:bell:
    - **Frequently comes up in interviews**
    - Concept in kNN is explained as overfitting and underfitting
-## Bias-Variance/Cross Validation
+## Bias-Variance and Cross Validation
 - [**Link to Finished Assignment**](https://github.com/onewindspirit/cross-validation)
 ### **Lecture Notes**
 - Basic concept is that the most optimal model is somewhere between over and underfitting
@@ -1256,12 +1318,12 @@ There's a couple three ways to make arrays in Numpy:
          - Generates new observations from minority class
          - For each minority class observation and for each feature:
             - Randomly generates between it and one of its *k-nearest neighbors*
-         - Essentially, it creates new synthetic datapoints near the real datapoints
+         - Essentially, it creates new synthetic data points near the real data points
    - Neither cost sensitivity or sampling is strictly superior
       - Oversampling tends to work better than undersampling on small datasets
       - Some algorithms do not have an obvious cost-sensitive adaptation, meaning they require sampling
 
-## :pleading_face:***```WEEK FIVE```***:pleading_face:
+## WEEK SIX
 
 ## Gradient Descent
 - [**Link to Finished Assignment**](https://github.com/onewindspirit/gradient-descent)
@@ -1274,12 +1336,12 @@ There's a couple three ways to make arrays in Numpy:
       - *If a derivative of a cost function is inputted with values from the dataset, eventually an optimized cost can be reached*
       - *if I don't know what the parameters should be, we can start with random parameters and incrementally improve*
 - The vector (∂𝑓∂𝑥,∂𝑓∂𝑦) is called a ***gradient***, and is in the direction of greatest increase of the function. The opposite direction is the greatest decrease.
-- **Optimization**: Throughout machine learning we have a constant goal of trying to find the model that best predicts the target from the features. We generally define "best" as minimizing some cost function (or maximizing a score function). In the case of linear regression (without regularization), we can do that by solving an equation exactly, but in almost every other case that's not possible. 
+- **Optimization**: Throughout machine learning we have a constant goal of trying to find the model that best predicts the target from the features. We generally define "best" as minimizing some cost function (or maximizing a score function). In the case of linear regression (without regularization), we can do that by solving an equation exactly, but in almost every other case that's not possible.
 - We want to find the values of 𝛽0 and 𝛽1 such that this *loss function* ***L*** is as small as possible, i.e., **minimize cost function**
    - We can do this by:
       1. figure out which direction we can change the coefficients to make ***L*** smaller. (how? partials.)
       2. We adjust the coefficients slightly in the direction, (how? learning rate!)
-      3. recalculate the direction, re-adjust, and repeat, again and again until we converge. 
+      3. recalculate the direction, re-adjust, and repeat, again and again until we converge.
 - **Gradient descent limitations**:
    - Dependent on the size of the step
       - Too small and it takes a long time, etc.
@@ -1289,13 +1351,13 @@ There's a couple three ways to make arrays in Numpy:
       - general rule: If the value of ```|∇𝑓(𝐱𝑖)−∇𝑓(𝐱𝑖+1)|/|𝐱𝑖−𝐱𝑖+1|``` is bounded above by some number ```𝐿(∇𝑓)``` then ```𝛼≤1/𝐿(∇𝑓)``` will converge.
    - **Feature scaling**:
       - If the second derivative is the same in all directions it converges pretty well. If the farther it is from this (as above) the more trouble it has converging, because the initial learning rate takes too long to converge along the slower dimensions (you've seen it in KNN lecture).
-      - This can mitigated by standardize/normalize the features.
+      - This can be mitigated by standardize/normalize the features.
    - **Stuck on local minima/maxima**:
-      - Gradient descent is not guaranteed to find a global minimum, only the local. This isn't a problem here or with regression (there's only one minimum) but is for other problems. Finding the global minimum is a difficult problem that does not have a solution in general, though there're techniques that do better than others. One approach is to try multiple starting points and make sure they converge to the same value.
+      - Gradient descent is not guaranteed to find a global minimum, only the local. This isn't a problem here or with regression (there's only one minimum) but is for other problems. Finding the global minimum is a difficult problem that does not have a solution in general, though there are techniques that do better than others. One approach is to try multiple starting points and make sure they converge to the same value.
 - **Stopping Criteria**:
    - Relative convergence tolerance: |𝑓(𝐱)−𝑓(𝐲)|/|𝑓(𝐱)|<𝜖
    - Absolute convergence tolerance: Magnitude of gradient |∇𝑓|<𝜖
-   - Maximum number of iterations 
+   - Maximum number of iterations
 - **RECAP**:
 - The way gradient descent works to find a minimum is:
    - Choose a starting point, a **learning rate**, and a threshold
@@ -1306,11 +1368,11 @@ There's a couple three ways to make arrays in Numpy:
       - Repeat until within the threshold
 - **Stochastic gradient descent**
    - *Challenges of gradient descent include*:
-         - it requires all the data to be in memory at each step. That's a problem for Big Data situations when you have more data then can fit in memory.
+         - it requires all the data to be in memory at each step. That's a problem for Big Data situations when you have more data than can fit in memory.
          - only finds local extrema
          - static, what if you are getting new data continuously?
-   - **Stochastic gradient descent (SGD)** provides a soultion for making a step at *eatch data point* (chosen in random order)
-      - Determines that we only need one data point in memory at teh same time
+   - **Stochastic gradient descent (SGD)** provides a solution for making a step at *each data point* (chosen in random order)
+      - Determines that we only need one data point in memory at the same time
       - Since the loss function is the sum of the loss functions associated with each data point, the average effect of a tiny step for each point is the same as one step for the whole sample.
    - A less extreme alternative is **mini-batch stochastic gradient descent** in which we use a small number of data points for each step.
    -SGD has a couple of properties:
@@ -1324,7 +1386,7 @@ There's a couple three ways to make arrays in Numpy:
 ## Multi-Layer Perceptrons
 - [**Link to Finished Assignment**](https://github.com/onewindspirit/perceptrons)
 ### **Lecture Notes**
-- **Neural Networks**: Perform well with hihg-dimensional (**unstructured**) data such as images, audio, and text
+- **Neural Networks**: Perform well with high-dimensional (**unstructured**) data such as images, audio, and text
    - Disadvantages:
       - Hard to design and tune
       - Slow to train
@@ -1341,9 +1403,9 @@ There's a couple three ways to make arrays in Numpy:
 - **NN Representation**:
    - can be expressed as a directed graph
       - *input*, *hidden*, *output* nodes or ***neurons*** in graphy
-      - layers inbetwen input and output are either *weights* or *activation functions* and *hidden*
+      - layers in between input and output are either *weights* or *activation functions* and *hidden*
    - ***some weird notation we'll have to get comfortable featured in the lecture***
-   - Output layer 𝑎[2]=𝑦̂ 
+   - Output layer 𝑎[2]=𝑦̂
    - weights 𝑤[layer]
 - ***What is happening in each neuron? Two steps:***
    1. *𝑧=𝑤𝑇𝑥+𝑏*
@@ -1354,12 +1416,12 @@ There's a couple three ways to make arrays in Numpy:
       - *Monotonic*
       - Gets stuck during Training
    - **Softmax**: used for multiclass classification
-   - **hperbolic tangent**: similar to sigmoid
+   - **hyperbolic tangent**: similar to sigmoid
    - **Rectified Linear Unit (ReLU)**: Most popular activation function currently
       - Gradient descent
 - **Forward propagation**: Signal is propagated from one layer to the next
 - **Backpropagation**: updates weights in a model backwards using gradients, chain rule and optimized using an optimization algorithm
-- **Fully Connected Network**: Simplist type of NN
+- **Fully Connected Network**: Simplest type of NN
    - Nodes are organized into layers
    - EAch layer is fully connected
 - **Regularization**: Since neural networks have a large number of parameters they are very easy to overfit. As such, most NN's include some sort of regularization:
@@ -1378,8 +1440,8 @@ There's a couple three ways to make arrays in Numpy:
 - *stuck on a weird error, refer to official solutions*
 - [Solutions](https://github.com/GalvanizeDataScience/rfe1_solutions)
 ### **Lecture Notes**
-- ***Time series***: Specific type of data where measaurements of a single quantity are taken over time
-   - Time represented with index *i* and the observations from the sereies as *yi*
+- ***Time series***: Specific type of data where measurements of a single quantity are taken over time
+   - Time represented with index *i* and the observations from the series as *yi*
 - **Time Series objects are not independent**
    - Things coming before impact those after
    - Everything is actually time series when it comes down to it
@@ -1415,12 +1477,12 @@ There's a couple three ways to make arrays in Numpy:
 ## Decision Trees
 - [**Link to Finished Assignment**](https://github.com/onewindspirit/decision-trees)
 ### **Lecture Notes**
-- Mulitple layers of rules for classification that are applied to a dataset in a heirarchy
+- Multiple layers of rules for classification that are applied to a dataset in a hierarchy
    - rules can be mixed (ie. size and color decisions at different levels)
    - Independent results of branches are called leaves
    - Makes no assumptions about data shape
       - Great for nonlinear models
-   - Handles catagorical data without having the make dummies like in linear regression
+   - Handles categorical data without having the make dummies like in linear regression
 - **Gini Impurity**: Measure of disorganization of a dataset
    - defined by the probability of object *j* in a set being identified correctly multiplied by the probability of incorrect identification, summed over all all objects
    - Right split results in a *minimum gini impurity* in the *child nodes*
@@ -1430,13 +1492,13 @@ There's a couple three ways to make arrays in Numpy:
       - Too complex to do by hand
       - Start with whole data and create every possible binary decision base on each feature
          - For discrete features the decision is *class no class*
-         - For continuous  features the decison is *threshold < value* or *threhold >= value*
+         - For continuous  features the decision is *threshold < value* or *threshold >= value*
       - Calculate the gini impurity for every decision
       - Pick the decision which reduces the impurity the most
          - Maximizes info gamed
 - **Different Types of Trees:**
    1. **Classification**: OUtcomes (target, output) are discrete. Leaf values are typically set to the most common outcomes
-   2. **Regression Trees**: Outcomes (taret,output) are continuous. Leaf values are typically set to the mean value in outcomes
+   2. **Regression Trees**: Outcomes (target,output) are continuous. Leaf values are typically set to the mean value in outcomes
       - Regression trees uses **RSS** instead of Gini/entropy
    - ***Features (inputs, predictors) can be either discrete or continuous for both types of trees***
    - **Overfitting**: Likely if the tree is built all the way until every leaf is prue
@@ -1445,10 +1507,10 @@ There's a couple three ways to make arrays in Numpy:
          2. Depth: stop splitting at a certain depth
          3. Purity: Stop splitting if enough of the examples are the same class
          4. Gain threshold: Stop splitting when the information gain becomes too small
-      - Postpruning ideas (for after the tree is built):
+      - Post Pruning ideas (for after the tree is built):
          - Merge leaves if doing so decreases test-set error
 - **Entropy**: another splitting measure which quantifies randomness
-``` 
+```
 from sklearn import tree
 tree.DecisionTreeClassifier(class_weight=None, criterion='entropy', max_depth=2,
 max_features=None, max_leaf_nodes=None,
@@ -1463,11 +1525,11 @@ tree.DecisionTreeRegressor(max_depth=2)
 - Most likely do not send unique identification information into a decision tree
    - Will make a ton of decisions based on single entries
 - *Cross validation will help in selecting the best tree*
-- **Recursion** uses the idea of *divide and conquer* tod divide a complex problem into sub-problems that can be more easily solved
+- **Recursion** uses the idea of *divide and conquer* tod divide a complex problem into subproblems that can be more easily solved
    - ***Three Laws of Recursion***
       1. Must have a base case
       2. Must change its state and case
-      3. Must call iteself
+      3. Must call itself
 
 ## Bagging and Random Forests: Implementation
 - [**Link to (Mostly) Finished Assignment**](https://github.com/onewindspirit/random-forests-implementation)
@@ -1476,9 +1538,9 @@ tree.DecisionTreeRegressor(max_depth=2)
 - Combines simplicity of decision trees with flexibility of bootstrapping resulting in a vast improvement in accuracy
 - **Ensemble Method**: Combines many weak models in order to form a strong model
    - Train multiple unique models on the data
-      - Can be differnt subsets of data
+      - Can be different subsets of data
       - Trained in different ways
-      - ***(Or completely different types)*** 
+      - ***(Or completely different types)***
       - Not necessarily multiple weak models
    - Can use weighted average to gain a single prediction from an ensemble of **regression** models
    - Can use simple majority to get a single prediction from an ensemble of **classification** models given a threshold
@@ -1509,7 +1571,7 @@ tree.DecisionTreeRegressor(max_depth=2)
       - Prune trees by merging nodes or canceling splits
 - **Decision tree pros:**
    - No feature scaling needed
-   - Model nonlinear relationships 
+   - Model nonlinear relationships
       - features can have different effects at different nodes
    - Can do both classification and regression
    - Robust
@@ -1562,7 +1624,7 @@ tree.DecisionTreeRegressor(max_depth=2)
 - **Out-Of-Bag Error**:
    - measure of error for a bagged model
       - including random forests
-   - Decision trees are constructed from a boostrap sample
+   - Decision trees are constructed from a bootstrap sample
       - a *test* set of data that wasn't used for training already exists
    - **Remember**:
       - *Bagging* applies to the whole tree
@@ -1583,14 +1645,14 @@ tree.DecisionTreeRegressor(max_depth=2)
    - **Issues:**
       - Lot of overhead to retrain multiple models
       - You can't measure on your model; you have to rebuild a new, and possibly very different model each time you delete a feature.
-      - Subject to colinearity
-- **Mean Decrease Impurity:** Observe why features are employed when they are in teh model
+      - Subject to collinearity
+- **Mean Decrease Impurity:** Observe why features are employed when they are in the model
    - Model will identify the most informative feature (of subspace) at each split
       - Observing when the features are used and how
    - Counting up how many times a feature was used to split *anywhere* in the forest
       - counts information gained of split
       - then averages
-         - Each tree, each split in order to reduce the total impurtiy of the tree
+         - Each tree, each split in order to reduce the total impurity of the tree
             - record magnitude of reduction
          - Importance of a feature is the average decrease in impurity across trees in the forest
             - result of splits defined by that feature
@@ -1605,17 +1667,17 @@ tree.DecisionTreeRegressor(max_depth=2)
    - **Computing importance of each feature:**
      - Build the model using all features
      - Measure the OOB accuracy for each tree
-     - Shuffle the values of one feature for all observations in the OOB data set and repeate the prediction
+     - Shuffle the values of one feature for all observations in the OOB data set and repeat the prediction
      - Compute the impact to accuracy and average across all trees.
-     - If shuffling a feature results an a large decrease in accuracy, it was an import feature.
+     - If shuffling a feature results in a large decrease in accuracy, it was an important feature.
    - Values are shuffled (rather than picking random values) to ensure that all values within the range are used
    - Model does not need to be rebuilt or retrained (**PRO**)
    - It might not work well with categorical features (**CON**)
 - **Partial Dependence**: Provides more detailed information but can be much harder to interpret
    - Works on almost any model type
-   - Instead of deleting a feature, or neutralizing a feature (by shuffling its values), we conser all possible values of a feature for all observations. 
+   - Instead of deleting a feature, or neutralizing a feature (by shuffling its values), we consider all possible values of a feature for all observations.
    - **Method**:
-     1. Build, train a score a model with the orignal data.
+     1. Build, train and score a model with the original data.
      2. For each feature, replace all observations' value with the lowest value of that feature.
      3. Measure accuracy.
      4. Replace all values for all observations with second-lowest value of that feature
@@ -1670,7 +1732,7 @@ tree.DecisionTreeRegressor(max_depth=2)
       2. When tuning other parameters using grid search, decrease the learning rate to a more sensible value, 0.01 works well.
       3. When fitting the final production model, set the learning rate to a very small value, 0.001 or 0.0005, smaller is better.
    - *General Advice: Run the final model overnight! It will fit while you are sleeping!*
-- **Tuning the Tree Depth:** 
+- **Tuning the Tree Depth:**
    - **Deeper Tree Depths:**
       - A larger tree depth allows the model to capture deeper interactions between the predictors, resulting in lower bias
       - Causes the model to fit faster, increasing the variance and somewhat combating the effect of the learning rate
@@ -1685,7 +1747,7 @@ tree.DecisionTreeRegressor(max_depth=2)
    - ***Note: The default rate in sklearn is 1.0, so make sure you always change it.***
 - **Tuning Other Gradient Boosting Parameters:**
    - The other parameters to GradientBoostingRegressor are less important, but can be tuned with grid search for additional improvements in importance
-      - `min_samples_split`: Any node with less samples than this will not be considered for splitting.
+      - `min_samples_split`: Any node with fewer samples than this will not be considered for splitting.
       - `min_samples_leaf`: All terminal nodes must contain more samples than this.
       - `min_weight_fraction_leaf`: Same as above, but expressed as a fraction of the total number of training samples.
    - Generally these are less important because you shouldn’t be growing super gigantic trees
@@ -1706,15 +1768,15 @@ tree.DecisionTreeRegressor(max_depth=2)
 - **Other Gradient Boosting Algorithms for Classification**:
    - **Gradient Boosted Logistic Regression**: Minimizes the binomial deviance (logistic log likelihood) loss function
    - **AdaBoost**: Minimizes a custom classification loss
-      - Outdated, accoring to Skylar
-   - There are many more possibilites
+      - Outdated, according to Skylar
+   - There are many more possibilities
 - **Gradient Boosted Logistic Regression**:
    - Generalized boosting algorithm to solve for classification problems:
       - Labels: 𝑦∈{0,1}
       - Logistic Loss function: ℓ(𝑓,𝑦)=𝑦𝑓−log(1+exp(𝑓))
-      - ```from sklearn.ensembles import GradientBoostingClassifier 
+      - ```from sklearn.ensembles import GradientBoostingClassifier
             model = GradientBoostingClassifier()
-            #Now y must be a np.array of 0 and 1’s!
+            #Now y must be an np.array of 0 and 1’s!
             model.fit(X, y)```
       - to predict use `.predict_proba(X)`
 - **Gradient Boosted AdaBoost**:
@@ -1723,7 +1785,7 @@ tree.DecisionTreeRegressor(max_depth=2)
    - Loss function: ℓ(𝑓,𝑦)=exp(−𝑦𝑓)
 - Gradient boosted logistic regression is *less sensitive to outliers* than Adaboost
 - Functions for Mixed Classes in lecture are really useful
-- Review: 
+- Review:
    - Gradient Boosting is the best off-the-shelf learning algorithm available today
    - It effortlessly produces accurate models.
    - **Nonetheless, it has drawbacks**:
@@ -1734,3 +1796,471 @@ tree.DecisionTreeRegressor(max_depth=2)
       - The sequential nature of the standard boosting algorithm makes it very difficult to parallelize (compared to, for example, random forest)
          - Recently, there has been great progress (xgboost and to a lesser degree of accuracy LightGBM)
 
+## WEEK SEVEN
+
+## Image and Audio Processing
+- [**Link to Finished Assignment**](https://github.com/onewindspirit/image-processing)
+### **Lecture Notes**
+- Tabular structure of datasets we've been using up until now do not work for more complicated data types like images or video
+- Data types of numbers for images:
+   - `unit8` unsigned integers 0-255
+   - `unit16` unsigned integers 0-65535,twice the memory of `unit16`
+   - `float` between 0-1
+- Color images are stored in three dimensional matrices:
+   - The first dimension is usually the height dimension starting from the top of the image
+   - The second dimension is usually the width, starting from the left
+   - The third dimension is usually the color. This is the "channel" dimension
+- For example, the 0th row (the top), the 0th column (the left), and the 0th color (usually red)
+- Images may sometimes have a fourth channel for transparency ("alpha channel"), or store the colors in an order other than the standard red-green-blue
+Dealing with images in Python
+- There are several tools you can use when working with images in python:
+   - **Numpy**: this is a standard way to store and work with the image matrix in python
+   - **scikit-image**: included with Anaconda it was developed by the SciPy community. It can be used to do many things we will cover shortly
+      - easy to use
+      - a lot of functionality already present in tensorflow
+   - **OpenCV**: there is a Python wrapper of OpenCV which is a C++ library for computer vision
+      - powerful tool as it has several pretrained models in it and the structure to allow training of your own classical image models
+   - **PIL and Pillow**: Pillow is supposed to be a user friendly version of PIL which is the Python Imaging Library
+      - adds image processing capabilities to Python.
+- ***Generally, these libraries work very nicely together, so it is easy to move data from one to the other***
+- Mean of each color in the image represents the mood of the image
+- K-means and look at centroids:
+   - KMeans clustering is a common way to extract the dominant colors in an image
+   - Can also compress and reconstruct images
+   - Transforming images
+- **Featurization**Looking for edges in images
+   - **Edge detection**:
+      - Search for a specific gradient (rate of change) of pixel intensities
+      - Search for direction of color change
+      - Change in gradient for a given pixel to the ones immediately above and below the left and right can be described with the following function
+   - This process is computationally slow it can be approximated by applying what is called a **convolution** or a vector of the needed form. For the x vector that would be [-1,0,1]
+      - Sometimes referred to as edge detection
+   - **Sobel operator**: The convolutions are used to gain information about the pixels surrounding the single pixel
+      - You can slide a convolution over a image and end up with a new image where every pixel now represents numerically the surrounding pixels
+      - One of the more well known ones is the Sobel
+- Much of this can be related to **Audio Processing**
+   - **Clustering**: sorting data above and below a given amplitude threshold
+   - **Silhouetting**: evaluation of how well a cluster is fitting
+
+## Convolutional Neural Networks
+- [**Link to Finished Assignment**](https://github.com/onewindspirit/convolutional-neural-nets)
+### **Lecture Notes**
+- **Fixed features**:
+   - Features have specific meaning
+   - Order is not important but must be maintained
+   - Shifting the values destroys the ability of the data to convey meaning
+- **Convolution**:
+   - Create a *kernel* or *filter* that corresponds to the feature of interest
+   - Scan from left to right, top to bottom
+   - Register the accordance between signal and filter at a variety of positions
+   - Output is a sequence (or array) of values
+   - ***Filters always extend the full depth of the input volume***
+- **Convolution Process**:
+   1. Convert input image to 3D array of numbers
+   2. Create filter (smaller 3D array of numbers)
+   3. Place filter at upper left and calculate accordance
+   4. Move filter one step ("stride") and register accordance
+   5. Repeat for all positions of filter on image
+- ***sum of the elements-wise products***
+- **Padding and Striding**:
+   - **Zero Padding**: Add a border of zeros around the original image to prevent the filter from overhanging the ends
+   - **Stride**: number of rows/columns to move the filter
+- **Activation**:
+   - Amplifies the significance of where a filter aligns with image
+   - Suppresses background of low-correspondence between image and filter
+   - Ensures a smooth gradient (for differentiation)
+   - Generally ***ReLU***
+- **Pooling (subsampling) layer**:
+   - Makes the representations smaller and more manageable
+   - Operates over each activation map independently
+   - ***Max pooling***
+- **Flatten -> Output**:
+   - Converts 2D filters to 1D
+   - MLP Layers:
+      - Densely connected
+      - Dropouts
+   - Output depends on problem definition:
+      - Regression:
+         - Single numeric value (linear activation)
+         - Multiple numeric values (with linear activation)
+      - Classification
+         - ***Binary***
+         - ***Single logit value***
+      - Multicategory
+         - ***Softmax***
+            - Series of values summing to 1
+- **Loss Functions**:
+   - Regression:
+      - ***RMSE***
+      - ***MAE***
+   - Classification:
+      - ***Binary cross-entropy***
+      - ***Multi-category cross-entropy***
+- Multiple convolutional networks already exist
+   - ***AlexNet***
+      - Parameters trained through gradient descent and back propagation
+   - ***GoogLeNet***
+- ***Things you have to get right***:
+   1. Output shape
+   2. Loss function trained on the right shape
+   3. Activation function that maps to output values
+
+## Natural Language Processing
+- [**Link to Finished Assignment**](https://github.com/onewindspirit/nlp)
+### **Lecture Notes**
+- **Natural Language Processing (NLP)**: are of comp sci and ai concerned with the interactions between computers and human languages
+   - How to program computers to fruitfully process large amounts of natural language data
+   - Used for:
+      - Conversational agents
+      - Speech recog
+      - Machine translation
+      - Sentiment analysis
+      - Historical research
+- **Differences between NLP and conventional ML:**
+   - Sparsity
+   - Ambiguity
+   - Social factors of language
+   - Confusing meaning
+   - Intentionally hidden meaning
+   - Inexact correlation between importance and expression
+- **Sparsity:**
+   - Very large number of words in any language
+   - Relatively small number of words in a single document
+   - Large percentage of *stop words*
+      - a, the, of, etc.
+   - Two similar documents might contain very few shared words
+   - An **X** matrix of words would be almost entirely NaaNs
+- **NLP Branches**:
+   - Phonetics and phonology:
+      - linguistic sounds
+   - Morphology and semantics:
+      - Meanings of words and components of words
+   - Pragmatics:
+      - Meaning with respect to goals and intentions
+   - Discourse:
+      - Structure of language larger than a single utterance
+   - Cryptology:
+      - Determining patterns and meaning from a non-standard input
+- **Document**:
+   - Single email, product review, entry, etc.
+   - Assumed to have a single author, topic and intent
+   - Corresponds to a single row in an X input matrix
+- **Corpus**:
+   - Collection of documents
+   - From multiple authors, topics, subjects, intents
+   - Corresponds to the entire X matrix
+- **Stop-words**:
+   - Common or domain-specific words
+   - Not useful in differentiating documents
+   - Generally removed
+- **Tokens**:
+   - Components of a documents (words, n-grams, phrases, etc)
+   - *Stemmed*
+      - cars, cars, car's, car's = car
+   - *Lemmentized*
+      - bring, brought, bringing, brung = bring
+- **n-grams**:
+   - more than one words that commonly appear together and may have a meaning distinct from its components
+   - *skip-grams*: same concept as stop-words but for n-grams
+- **Bag-of-words**:
+   - Word (token) count is interpreted as *importance*
+   - Word order and association are ignored
+- **Text Processing Workflow**:
+   1. Lowercase all text
+   2. Strip out punctuation and miscellaneous spacing
+   3. Remove stop words
+   4. Stem or lemmantize into tokens
+   5. Convert to sparse numeric representation
+      - Counts
+      - Term frequency (tf)
+         - L2 norm
+      - Term frequency-inverse document frequency (tf-idf)
+   6. Train/cluster machine learning model
+   7. Optional: Part-of-speech tagging, expand feature matrix with n-grams
+- The whole point is to reorganize text into a format that can be put into a model
+- `tf.fit_transform` on training data
+- `tf.fit` on test data
+- **Sparse matrix**: Matrix that has a lot of 0's
+   - Common in NLP datasets
+   - dealt with using `.todense()`
+      - `pd.DataFrame(document_tfidf_matrix.todense(), columns = sorted(tfidf.vocabulary_))`
+- **Bag of Words** struggles with short, concise documents
+   - Loses word order/associations
+- **Rule-Based Sentiment Analysis**:
+   - Words have been manually (and exhaustively) placed into categories
+   - Large overlap between categories
+   - Accurately subject to interpretation
+- **Latent Dirichlet Allocation**:
+   - Documents belong to groups that are characterized by topic rather than specific words
+   - Topics are not specified but deducted from *Bayesian probability* of term co-occurrence
+   - Documents are considered by their probability of having been generated from a mixture of topics
+   - Therefore, two documents may be measured *similar* even if they share relatively few words
+- **Long Short-Term Memory (LSTM)**:
+   - A type of neural net that takes inputs both from current data and a memory element of the network
+   - The network state retains information from previous iterations until they are explicitly reset by new information
+   - Useful for connecting pronouns to meaning
+- **Word Embedding**:
+   - Difference between *word space* and *meaning space*
+   - creates associations between words with similar meanings
+- **Word2Vec**:
+   - Deep Neural Network to convert from word vectors to meaning vectors with numeric values
+   - Allows for vector representation and math
+- **ELMo**: Similar to **Word2Vec** but accounts for homonyms
+- **Bert**: Similar to **ELMo** but accounts for context
+## Text Classification and Naive Bayes
+- [**See solutions**](https://github.com/GalvanizeDataScience/rfe1_solutions)
+### **Lecture Notes**
+- Text classification is a good use of Naive Bayes
+   - Due to bag-of-words featurization of text
+      - All features are independent
+      - Input feature matrix is usually very wide
+      - n can often be less than p
+- What is the probability that *A* fits into a classification given the information we already have *B*?
+- For every document, calculate the probability that the document belongs to each class and chose the class with the highest probability
+   - Calcute:
+      - ***Priors***: Probability that a generic document belongs to each class
+      - ***Conditional Probabilities***: Probability that each word appears in each class
+   - Count occurrences in training set to get approximations of the probabilities
+- **Priors**: the likelihood of each class
+   - Based on the distribution of classes in the training set
+      - Assign a probability to each class
+- **Maximum Likelihood Estimation**: Combining calculations made with priors and conditional probabilities to make a prediction
+- **Laplace Smoothing**: Add 1 to the numerator and the number of words in the vocabulary to the denominator in order to keep probabilities of 0 from breaking the whole estimation
+- **Preventing Numerical Underflow**: take the log of both sides of the equation
+## Clustering
+- [**Link to Finished Assignment**](https://github.com/onewindspirit/clustering)
+### **Lecture Notes**
+- **Clustering**: Classifying data without examples or labels
+   - Understanding that there are common elements between columns without knowing exactly what the predicted quality is
+   - Customer segmentation
+   - Product segmentation
+   - Image segmentation
+   - Anomaly detection
+   - Social network analysis
+   - Compliment to supervised learning
+      - Clustering as new feature engineering
+- **Clustering**:
+   - Data exists
+   - Distributed across multiple dimensions
+   - Reason to believe (or suspect) that differences exist in the data that have not been *explicitly* labeled
+   - Reason to believe (or suspect) that knowing these differences helps make decisions or improves outcomes
+- **Clustering objectives**:
+   - Infer labels from unlabeled data
+   - Measure the integrity of the clusters
+   - Determine the appropriate number of clusters
+   - Determine how to use new information to drive decisions
+- **Measurement**:
+   - A *good* cluster has points near to one another and far away from points outside the cluster
+   - Minimize *Within Cluster Variation (WCV)*
+      - Average distance from each point to the center of the cluster that contains the given point
+      - Extreme cases where every point is its own cluster
+- **K-Means Clustering**:
+   - Pick a value for *k* number of clusters
+   - Randomly initialize *k* points (centroids)
+   - Tentatively assign each *observation point* to the *nearest* centroid
+   - Iterate:
+      - Move centroid points to the average position of all points that have been assigned to that cluster
+      - Re-assign observations to nearest centroid
+   - Repeat until convergence
+- **Alternative initialization approaches**:
+   - Simple: Randomly choose *k* points from observations to serve as *initial* centroids
+   - Randomly assign points to clusters
+   - **K-means++**:
+      - Chooses well-spread initial centroids
+      - First centroid chosen randomly
+      - Subsequent centroid chosen with probability proportional to the squared distance to the closest existing centroid
+         - *Filling in the gaps*
+      - Default in `sklearn`
+- **Stopping Criteria**:
+   - Specified number of iterations
+   - Centroids don't change at all
+   - No points change in clusters
+   - Until centroids don't move by very much
+      - `sklearn default: tol = 0.0001`
+      - *Tolerance*
+- **Non-deterministic**:
+   - Random initialization means that it is not assured that points will always be assigned to the same cluster
+      - amplified if clusters are not well separated for a poor choice for *k* is made
+   - May be necessary to repeat clustering multiple times
+- **Clustering Evaluation**:
+   - Minimizing *Intra-Cluster Variance* or *Within Cluster Variance (WCV)*
+      - WCV for *kth* cluster = the sum of all the pairwise Euclidean distances
+- **Picking the right value for k**:
+   - *Hyperparameter tuning*
+      - No precise method
+   - ***Elbow Plot***
+      - Increasing *k* will always result in lower RSS with diminishing returns
+      - Identify *elbow* where improves become less significant
+      - Prefers simpler models (lower *k*)
+   - ***Silhouette score***
+      - Good clusters should have:
+         - Low average intra-cluster distance *a*
+         - High average nearest-cluster distance *b*
+         - Silhouette = (b-a)/max(a,b)
+         - Best = 1 (a=0,S=b/b)
+         - Worst = -1 (b=0,S=-a/a)
+         - S = 0: indicates b=a or intra-cluster equal nearest=cluster distance
+      - Assumptions:
+         - Correct *k* is selected
+         - Points have equal variance
+         - Isotropic shape
+         - Clusters do not need same number of points
+   - *Gap stat*
+   - *Domain knowledge*
+- **Hierarchical Clustering**:
+   - Skylar doesn't like hierarchical clustering
+      - Pretty but not useful for large datasets
+   - Does not pick *k* value in advance
+   - Effectively scan through a range of *k*
+   - ***Deterministic***: no random initialization
+      - Always the same results
+   - Not limited to Euclidean distance
+   - **Dendrogram**: shows dissimilarity between points
+      - y-axis shows distance at which a connection can be made
+      - Points connected low are most similar
+      - Points connected high are least similar aka most distant
+- **Hierarchical clustering algorithm**:
+   - For each observation measure distance to all other observations
+      - Distance may be euclidean, cosine, etc.
+   - Identify closest points
+   - Chart closest points on dendrogram at height=distance
+   - Fuse into a new cluster
+   - Recalculate distances between all points/clusters
+   - Continue until all points/clusters have been ***fused***
+- **Fusing**:
+   - ***Single Linkage***: distance between two clusters is defined as the *shortest* distance between two points in the cluster
+      - *Nearest neighbor*
+      - Several clusters may be joined because of a few close cases ***(CON)***
+   - ***Complete Linkage***: distance between two clusters is defined as the *longest* distance between two points in each cluster
+      - *Farthest neighbor*
+      - Cluster outliers prevent otherwise close clusters from merging ***(CON)***
+   - ***Average Linkage***: Distance between two clusters is defined as the average distance between each point in one cluster to every point in the other cluster
+      - Most common method of fusing
+- **DBSCAN**: *Density-Based Spatial Clustering of Applications with Noise*
+   - Number of clusters is not specified
+   - Distance between points for connections is specified
+   - Number of connected points for a point to be a *core* point
+   - A cluster is all connected core points, plus others within the distance
+      - Other points are *noise* or *outliers*
+- *Useful clustering image guide in the lecture notebook*
+- Doing clustering before supervised learning can be useful
+## Principal Component Analysis
+- [**Link to Finished Assignment**](https://github.com/onewindspirit/pca)
+### **Lecture Notes**
+- Creating a linear combination of data in order to reduce or reshape features into a new, reduced set of features
+   - Usually done for performance and interpretability purposes
+- **Principal Component Analysis (PCA)**
+   - PCA is a statistical procedure that uses an *orthogonal transformation* to convert a set of observations of possibly correlated features into *linearly uncorrelated* features called principal components
+   - The data set is transformed from its original coordinate system to a new coordinate system
+      - The new system is chosen by the data itself
+      - The first new axis (*the principal component*) is chosen in the direction of the most variance of the data
+      - The second axis is orthogonal to the first axis and is in the direction of the next most variance in the data
+      - More and more orthogonal axes (PCs) can be added to describe all the variance in the data
+      - Usually the majority of the variance of the data is contained in the first few principal components
+         - The axes can be ignored, reducing dimensionality in the data
+   - Summarizes the sit with a smaller number of representative variables that collectively explain most of the variability in the original set
+      - Principal component directions a re *n* directions in feature space along which the data is highly variable
+      - PCA refers to the process by which principal components are computed
+         - And the use of these components in understanding the data
+- **PCA** defines orthogonal axes of variance that can be used to describe the variance in the data
+   - Reduces dimensionality
+   - Removes collinearity of features
+   - Allows better visualization of data
+   - Makes computation easier
+   - Identifies structure for supervised learning
+   - Principal  components are linear combinations of features ***(CON)***
+      - Less interpretable
+- **Other dimensionality reduction techniques**:
+   - LASSO regularization
+   - "Relaxed" LASSO regularization
+   - sklearn's Feature Selection page:
+      - `VarianceThreshold`
+      - `SelectKBest`
+      - `Recursive Feature Elimination (RFE)`
+      - `selectFromModel`
+   - Decision Tree Based
+      - `.feature_importances_`
+         - Skylar still things permutation importance is better
+- **PCA is done one of two ways**:
+   - *Eigen-decomposition* of the X covariance or correlation matrix
+      - Almost always look at the correlation matrix
+   - *Singular value decomposition*
+**Eigen-Decomposition step-by-step**:
+   1. Create *design matrix* ***X*** by mean-centering and (usually) by dividing the standard deviation
+      - Simply standardizing the columns
+   2. Computer the ***covariance*** (if only mean-centered) or ***correlation*** matrix:
+      - 1/*N* ***X***^***T X***
+   3. Find the *eigenvectors* (***v***) and eigenvalues(***λ***) of the covariance/correlation matrix
+   4. The **eigenvectors are the principal components**
+   - [Good example on how to do this by hand](https://online.stat.psu.edu/statprogram/reviews/matrix-algebra/eigendecomposition)
+
+## Singular Value Decomposition
+- [**Link to (mostly) Finished Assignment**](https://github.com/onewindspirit/svd)
+### **Lecture Notes**
+- Covariance matrices can become very large as the number of components in feature space increases
+- **SVD** can help to reduce the size of calculations (computational resources) by offering to use matrix X^T (instead of covariance matrix X^TX) to find the same eigenvectors as PCA with eigenvalues that always equal the square of X^TX eigenvalues
+- **SVD** is used to determine ***latent features***
+   - Important there are no NaaNs
+
+## Topic Modeling
+- [**Link to Finished Assignment**](https://github.com/onewindspirit/topic-modeling)
+- **Non-negative Matrix Factorization (NMF)**:
+   - Similar to **SVD**
+      - Another approach to compressing a matrix
+   - *W(m * r) * H(r * n) = V (m * n)*
+   - Size of ***V*** is determined by rows of ***W*** and columns of ***H***
+   - *r* = Columns of ***W*** and rows of ***H***
+      - Must be identical (conformable)
+         - Any value of *r* will produce ***V*** of desired shape
+   - Choosing a small value for *r* allows ***W*** and ***H*** to be much,much smaller than ***V***
+   - Values for ***W*** and ***H*** are chosen for no other reason except that they produce ***V*** when multiplied
+      - Constraint is always non-negative:
+         - makes *features* purely additive
+         - Helps interpretability
+         - Reflects many real-world situations
+   - **Applications of NMF**:
+      - Soft Clustering:
+         - Each observation may have partial membership in multiple clusters
+         - Genre Analysis
+      - Computer Vision:
+         - Identifying/classifying based on key components
+         - Compression
+         - Error correction/enhancement
+      - Document clustering
+      - Recommender systems
+   - **NMF Methods**:
+      1. **Select *r* (column/row) dimension**
+         - Large *r*:
+            - more data
+            - better fidelity
+         - Small *r*:
+            - More compression
+            - Worse fidelity
+         - *r* = 1: row/column average
+         - *r* = 2: intercept/slope for each row/column
+      2. **Alternating Least Squares**
+         - Minimize cost function
+         - Pick random values for ***W***
+         - Iterate:
+            - Find least squares solution to **V-WH=0**
+            - Set any negative values in **H** to 0
+            - Find Least Squares solution to **V-WH=0**
+            - Set any negative values in **W** to 0
+         - Until stopping threshold is met:
+            - RMSE, number of iterations, values of **H**,**W**,etc.
+         - Implemented in Spark
+      3. **Gradient Descent**
+         - Pick random values for **W** and **H**
+         - Pick a learning rate
+         - iteratively adjust **H** and **W**
+         - UNtil stopping threshold is met
+   - **Comparison of PCA and NMF Facial Recognition**
+      - **PCA:**
+         - A face is a combination of multiple overlays–May be negative or positive
+         - Only first few components appear to have much meaning
+         - Each component an amalgam of all features
+      - **NMF:**
+         - A face is constructed from multiple components
+         - Purely additive–More individual components identifiable
+         - Nose/Mouth/Eyes/Eyebrows, etc separable
+         - Better analogy to how neurons work
